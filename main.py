@@ -52,10 +52,10 @@ for barco_correcto_usuario in listado_barcos_usuario:
 
 
 #print temporal para ver qué pasa cuando acertamos el disparo
-print("El tablero del contrincante con los barcos colocados -->", listado_barcos_contrincante)
+print("Prints temporales para hacer pruebas de distintos tiros y comprobar si se ejecuta bien")
+print("\nEl tablero del contrincante con los barcos colocados -->", listado_barcos_contrincante)
 print("\nNuestro tablero con los barcos colocados -->", listado_barcos_usuario)
 
-'''REVISADO HASTA AQUÍ: hacia abajo solo funciona el bucle si el usuario (nosotros) acierta, si no, da fallos'''
 
 #Vamos a definir los tableros ocultos:
 tablero_contrincante_oculto = utils.crear_tablero(10)
@@ -70,7 +70,7 @@ disparos_faltantes_usuario = sum(esloras)
 #Mientras haya disparos por tirar, se debe seguir jugando pues no hay un ganador
 while disparos_faltantes_usuario > 0 and disparos_faltantes_contrincante > 0:
     #La partida se inicializa con el usuario introduciendo la casilla de disparo (supongamos que el input siempre va a ser correcto)
-    print("A continuación, vas a introducir las posiciones de la casilla. Para ello, introducirás números enteros entre el 0 y el 9, ambos incluidos")
+    print("A continuación, vas a introducir las posiciones del disparo. Para ello, introducirás números enteros entre el 0 y el 9, ambos incluidos")
     fila_usuario = int(input("Fila "))
     col_usuario = int(input("Columna "))
     disparo_usuario = (fila_usuario, col_usuario)
