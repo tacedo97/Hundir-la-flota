@@ -52,7 +52,7 @@ for barco_correcto_usuario in listado_barcos_usuario:
 
 
 #print temporal para ver qué pasa cuando acertamos el disparo
-print("Prints temporales para hacer pruebas de distintos tiros y comprobar si se ejecuta bien")
+print("\nPrints temporales para hacer pruebas de distintos tiros y comprobar si se ejecuta bien")
 print("\nEl tablero del contrincante con los barcos colocados -->", listado_barcos_contrincante)
 print("\nNuestro tablero con los barcos colocados -->", listado_barcos_usuario)
 
