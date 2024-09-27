@@ -84,14 +84,11 @@ while disparos_faltantes_usuario > 0 and disparos_faltantes_contrincante > 0:
         #Se pide de nuevo como input un disparo
         disparos_faltantes_usuario = disparos_faltantes_usuario-1
         tablero_contrincante_oculto = utils.disparar(disparo_usuario, tablero_contrincante_oculto)
-        print("El tablero del contrincante tiene el siguiente aspecto \n", tablero_contrincante_oculto)
         
     else:
         print("Has fallado")
         tablero_contrincante_oculto = utils.disparar(disparo_usuario, tablero_contrincante_oculto)
-        print("El tablero del contrincante tiene el siguiente aspecto \n", tablero_contrincante_oculto)
         #Juega el contrincante
-        #disparo_contrincante = (utils_Tamara.random.randint(0,9), utils_Tamara.random.randint(0,9))
         d = True
         while d:
             disparo_contrincante = (utils.random.randint(0,9), utils.random.randint(0,9))
@@ -99,8 +96,7 @@ while disparos_faltantes_usuario > 0 and disparos_faltantes_contrincante > 0:
             tablero_usuario_oculto = utils.disparar(disparo_contrincante, tablero_usuario_oculto)
             if tablero_usuario[disparo_contrincante] not in ["_", "A"]:
                 print("El contrincante ha acertado, sigue")
-                #El contrincante sigue jugando
-                #Se pide de nuevo como input un disparo
+                #El contrincante sigue jugando (esta parte del código no ejecuta correctamente porque haciendo pruebas, hemos visto que aunque el contrincante acierte, no sigue)
                 disparos_faltantes_contrincante = disparos_faltantes_contrincante-1
                 tablero_usuario_oculto = utils.disparar(disparo_contrincante, tablero_usuario_oculto)
             else:
