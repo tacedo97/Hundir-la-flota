@@ -1,12 +1,13 @@
 import numpy as np
 import random
 
-#Creamos el tablero a partir del tamaño que lo queremos
+#Creamos el tablero del juego del tamaño indicado en el input
 def crear_tablero(tamaño):
     tablero = np.full((tamaño,tamaño), "_")
     return tablero
 
-#Creamos un barco de largo=eslora y cerciorándos de que está dentro del tablero de tamañoxtamaño casillas (que vamos a hacerlo de momento para tamaño=10)
+#Creamos un barco de largo=eslora y cerciorándonos de que está dentro del tablero de (tamañoxtamaño) casillas 
+#(de momento, en nuestro juego, vamos a establecer que tamaño=10)
 def crear_barco_dentro(eslora):
     casilla_0 = (random.randint(0,9), random.randint(0,9))
     orientacion = random.choice(["Vertical", "Horizontal"])
@@ -27,12 +28,11 @@ def crear_barco_dentro(eslora):
             barco = crear_barco_dentro(eslora)
     return barco
 
-#Creamos un listado de barcos de modo que no estén superpuestos entre sí
+
 #Creamos un listado de barcos de modo que no estén superpuestos entre sí 
-# ¡¡¡¡¡¡¡¡¡CORREGIRRRRRRRRRRRRRRRRRR!!!!!!! El list comprehension está mal, no nos da una lista de posiciones sino una lista de listas!!!!!!!!!!!
 def flota_dentro_no_superpuesta(esloras):
     flota = []
-    posiciones_flota = [posicion for posicion in flota]
+    posiciones_flota = []
     for eslora in esloras:
         barco_correcto = False
         while not barco_correcto:
@@ -44,7 +44,7 @@ def flota_dentro_no_superpuesta(esloras):
                     break
             if barco_correcto:
                 flota.append(barco_tentativo)
-                posiciones_flota = [posicion for posicion in flota]
+                posiciones_flota = posiciones_flota + barco_tentativo
     return flota
 
 #Colocamos un barco dentro de un tablero
@@ -130,7 +130,7 @@ def jugar_hlf(): #ME QUEDA POR CONTROLAR SI ALGÚN USUARIO REPITE DISPARO!
 
         #Si disparamos a un barco
         if tablero_rival[disparo_usuario] not in ["_", "A"]: 
-            print("\nHas acertado\n")
+            print("\nBarco tocado\n")
             #Seguimos jugando
             #Se pide de nuevo como input un disparo
             tablero_rival_oculto[disparo_usuario] = tablero_rival[disparo_usuario]
@@ -140,7 +140,8 @@ def jugar_hlf(): #ME QUEDA POR CONTROLAR SI ALGÚN USUARIO REPITE DISPARO!
                     
         #Si disparamos al agua
         else:
-            print("\n\nHas fallado, el tablero del rival queda así:\n")
+            print("\n\nAgua.") 
+            print("El tablero del rival queda así:\n")
             tablero_rival_oculto[disparo_usuario] = tablero_rival[disparo_usuario]
             print(tablero_rival_oculto, "\n")
             print("*"*50 + "  TURNO DEL RIVAL  " + "*"*50)
